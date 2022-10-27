@@ -1,0 +1,166 @@
+
+<div class="example-container mat-elevation-z8" >
+
+
+  <div class="page-header">
+
+
+    <mat-card *ngIf="data" >
+      <mat-card-header>
+
+      </mat-card-header>
+      <mat-card-content>
+        <div >
+          <div style="display: flex;justify-content: space-around; padding-bottom: 30px;">
+
+
+            <div>
+
+            اجمالى كسب عمل:       {{data.totalTaxNormal}}
+
+
+            </div>
+            <div>
+
+              اجمالى دمغه عاديه:       {{data.totalStamp}}
+
+
+              </div>
+              <div>
+
+                اجمالى تسويه ضريبيه:{{data.totalTaxsettlement}}
+
+                </div>
+                <div>
+
+                  اجمالى ضرائب باب ثانى :       {{data.totalTax2}}
+
+
+                  </div>
+                  <div>
+
+                    اجمالى  اخرى  :       {{data.totalOther}}
+
+
+                    </div>
+
+          </div>
+
+
+<div style="display: flex;justify-content: space-around;">
+  <div >
+<h2>
+  أجمالى الضرائب :       {{data.totalSumTax}}</h2>
+
+
+  </div>
+<div>
+<h2>
+أجمالى رسم التنميه :       {{data.totalTaxDevelopment}}</h2>
+
+</div>
+</div>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+    <div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+      <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+      لا توجد بيانات للعرض .....
+      </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="openDialog('Add')">
+      <mat-icon>add</mat-icon>اضافة صندوق
+    </button>
+
+
+    <button mat-mini-fab color="default" (click)="export()"><mat-icon>download</mat-icon></button>
+    <div class="example-table-container">
+
+
+
+      <table mat-table [dataSource]="filteredOptions" class="example-table" matSort matSortDisableClear matSortDirection="desc">
+        <!-- Number Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>
+
+
+          </th>
+          <td mat-cell *matCellDef="let row">
+
+
+             <button mat-mini-fab color="primary" (click)="openDialog('Edit',row)"><mat-icon>edit</mat-icon></button>
+             <button mat-mini-fab color="warn" (click)="deleteDailyBox(row)"><mat-icon>delete</mat-icon></button>
+          </td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <!-- <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>
+ <h2>البيان</h2>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <div [routerLink]="['/form-list/'+row.id]"   style="cursor: pointer;text-decoration: none;">
+                 {{row.name}}</div>
+
+
+
+          </td>
+        </ng-container> -->
+  <!--Total-->
+
+
+         <!-- State Column -->
+         <ng-container matColumnDef="box">
+          <th mat-header-cell *matHeaderCellDef>
+            <h2>الصندوق</h2>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <div [routerLink]="['/form-list/'+row.id]"   style="cursor: pointer;text-decoration: none;">
+              {{row.box.name}}
+            </div>
+          </td>
+        </ng-container>
+  <ng-container matColumnDef="collage">
+    <th mat-header-cell *matHeaderCellDef>
+  <!-- <h2>الكليه</h2> -->
+
+  <mat-form-field appearance="fill">
+    <mat-label>اختار الكليه</mat-label>
+    <mat-select (selectionChange)="CollageSelectionChange($event.value)">
+      <mat-option>اختار ...</mat-option>
+      <mat-option *ngFor="let collage of collages" [value]="collage.id">
+        {{collage.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+    </th>
+    <td mat-cell *matCellDef="let row">{{getCollageById( row.box.collageId)}}</td>
+  </ng-container>
+
+  <!--Total-->
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef>
+  <h2>اجمالى ضرائب</h2>
+    </th>
+    <td mat-cell *matCellDef="let row">{{row.total}}</td>
+  </ng-container>
+  <!--Total-->
+  <ng-container matColumnDef="totalTaxDevelopment">
+    <th mat-header-cell *matHeaderCellDef>
+  <h2 style="font-family: 'Sabana Regular';"> اجمالى تنميه</h2>
+    </th>
+    <td mat-cell *matCellDef="let row">{{row.totalTaxDevelopment}}</td>
+  </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+      </table>
+    </div>
+
+    <!-- <mat-paginator [length]="resultsLength" [pageSize]="10" aria-label="Select page of GitHub search results">
+    </mat-paginator> -->
+  </div>

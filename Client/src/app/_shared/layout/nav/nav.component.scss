@@ -1,0 +1,49 @@
+::ng-deep {
+  .sidenav-container {
+    position: relative;
+    top: 0px;
+    bottom: 0;
+    min-height: 897px;
+
+
+  }
+
+  .sidenav {
+
+    position: relative;
+    top: 60px;
+
+  }
+
+
+  .sidenav .mat-toolbar {
+    background: inherit;
+
+  }
+
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .mat-sidenav {
+
+    width: 200px !important;
+  }
+
+  .mat-sidenav-content {
+    padding: 10px;
+  }
+
+
+  .mat-list-item-content {
+
+    justify-content: center !important;
+
+  }
+
+
+}
+
+

@@ -1,0 +1,114 @@
+<div *ngIf="data">
+
+
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+          <span *ngIf="data.state==='Add'">
+            أستمارة جديدة
+          </span>
+          <span *ngIf="data.state==='Edit'">
+           تعديل استمارة
+          </span>
+
+      </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="form" (ngSubmit)="Save()">
+
+        <mat-form-field appearance="fill"  color="primary" class="full-width">
+          <input matInput placeholder="رقم 224" formControlName="num224" autocomplete="off" >
+           <mat-error *ngIf="formValidator('num224')?.required ===true"> من فضلك قم بادخال رقم 224
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill"  color="primary" class="full-width">
+          <input matInput placeholder="البيان" formControlName="name" autocomplete="off" >
+          <!-- <mat-error *ngFor="let validation of validation_messages.fullname">
+            <mat-error class="error-message" *ngIf="userDetailsForm.get('fullname').hasError(validation.type) && (userDetailsForm.get('fullname').dirty || userDetailsForm.get('fullname').touched)">{{validation.message}}</mat-error>
+          </mat-error> -->
+        </mat-form-field>
+        <div style="display: flex; flex-direction: column">
+   <div class="title">
+    كسب عمل
+   </div>
+        <mat-form-field appearance="fill"  color="primary" class="full-width">
+          <input type="number" min="0"  step=".01" matInput placeholder="كسب العمل" formControlName="taxNormal" autocomplete="off" >
+          <mat-error *ngIf="formValidator('taxNormal')?.required ===true"> من فضلك قم بادخال قيمه فى  كسب عمل
+          </mat-error>
+        </mat-form-field>
+      </div>
+        <div style="display: flex; flex-direction: column">
+          <div class="title">
+            دمغة عاديه
+           </div>
+      <mat-form-field appearance="fill"  color="primary" class="full-width">
+
+          <input type="number" min="0"  step=".01" matInput placeholder="دمغه عاديه " formControlName="stamp" autocomplete="off" >
+          <mat-error *ngIf="formValidator('stamp')?.required ===true">  من فضلك قم بادخال قيمه فى دمغه عاديه
+          </mat-error>
+        </mat-form-field>
+</div>
+<div style="display: flex; flex-direction: column">
+  <div class="title">
+    تسويه ضريبيه
+   </div>
+
+  <mat-form-field appearance="fill"  color="primary" class="full-width">
+
+    <input type="number" min="0"  step=".01" matInput placeholder="تسويه ضريبيه" formControlName="taxsettlement" autocomplete="off" >
+    <mat-error *ngIf="formValidator('taxsettlement')?.required ===true"> من فضلك قم بادخال قيمه فى تسويه ضريبيه
+    </mat-error>
+  </mat-form-field>
+</div>
+<div style="display: flex; flex-direction: column">
+  <div class="title">
+    ضرائب باب ثانى
+   </div>
+
+        <mat-form-field appearance="fill"  color="primary" class="full-width">
+
+
+          <input type="number" min="0"  step=".01" matInput placeholder="ضرائب باب ثانى" formControlName="tax2" autocomplete="off" >
+          <mat-error *ngIf="formValidator('tax2')?.required ===true"> من فضلك قم بادخال قيمه فى ضرائب باب ثانى
+          </mat-error>
+        </mat-form-field>
+</div>
+
+<div style="display: flex; flex-direction: column">
+  <div class="title">
+   اخرى
+   </div>
+        <mat-form-field appearance="fill"  color="primary" class="full-width">
+          <input type="number" min="0"  step=".01"  matInput placeholder="أخرى" formControlName="other" autocomplete="off" >
+          <mat-error *ngIf="formValidator('other')?.required ===true"> من فضلك قم بادخال قيمه فى اخرى
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <div class="title">
+        رسم تنميه
+         </div>
+        <mat-form-field appearance="fill"  color="primary" class="full-width">
+
+          <input type="number" min="0"  step=".01" matInput placeholder="تنميه" formControlName="taxDevelopment" autocomplete="off" >
+          <mat-error *ngIf="formValidator('taxDevelopment')?.required ===true"> من فضلك قم بادخال قيمه فى رسم تنيه
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+      </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="action-button">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="Save()">حفظ </button>
+        <button mat-raised-button color="warn" (click)="onNoClick()">ألغاء </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+

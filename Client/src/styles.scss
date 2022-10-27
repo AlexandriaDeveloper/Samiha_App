@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Sabana";
+  src:local("Sabana") , url(./assets/fonts/sabana/Sabana.ttf) format("truetype");
+}
+
+
+@font-face {
+  font-family: "Cairo";
+  src:local("Cairo") , url(./assets/fonts/Cairo/static/Cairo-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "a-google";
+  src:local("a-google") , url(./assets/fonts/a-google/a-google.ttf) format("truetype");
+}
+@font-face {
+  font-family: "khebrat";
+  src:local("khebrat") , url(./assets/fonts/khebrat-musammim/Khebrat-Musamim.ttf) format("truetype");
+}
+html,
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 0;
+  font-family: Cairo, 'arial', sans-serif!important;
+}
+
+body {
+  margin: 0;
+
+}
+
+  .success{
+
+  font-family: Cairo;
+  font: 14px;
+  color: #fff;
+    background-color: green;
+
+    }
+    .fail{
+
+  font-family: Cairo;
+  font: 14px;
+  color: #fff;
+      background-color: red;
+
+    }
+    .warn{
+
+  font-family: Cairo;
+  font: 14px;
+  color: #000;
+  background-color: rgb(228, 228, 117);
+
+    }
+

@@ -1,0 +1,3 @@
+F:\SamihaApp\publish\Core.dll
+F:\SamihaApp\publish\Core.deps.json
+F:\SamihaApp\publish\Core.pdb

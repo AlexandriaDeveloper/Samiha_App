@@ -1,0 +1,25 @@
+.action-button{
+  display: flex;
+  justify-content: center;
+
+}
+.full-width{
+
+  padding: 20px;
+
+
+}
+.content{
+  min-height: 200px;
+}
+form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-flow: row wrap;
+}
+.title{
+  position: relative;
+  right: 30px;
+  padding: 0;
+}

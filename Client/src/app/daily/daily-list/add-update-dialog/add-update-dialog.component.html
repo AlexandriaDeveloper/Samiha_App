@@ -1,0 +1,47 @@
+<div *ngIf="data">
+
+
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>يوميه</mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="dailyForm" (ngSubmit)="Save()">
+        <mat-form-field color="primary" class="full-width">
+          <input matInput placeholder="البيان" formControlName="name" >
+          <!-- <mat-error *ngFor="let validation of validation_messages.fullname">
+            <mat-error class="error-message" *ngIf="userDetailsForm.get('fullname').hasError(validation.type) && (userDetailsForm.get('fullname').dirty || userDetailsForm.get('fullname').touched)">{{validation.message}}</mat-error>
+          </mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field color="primary" class="full-width">
+
+     <!-- <input matInput type="date" placeholder="اليوميه" formControlName="dailyDate" [value]="model.dailyDate"   #datePicker> -->
+      <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker"  formControlName="dailyDate"  (dateChange)="test($event.value)">
+
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+           <!--<mat-error *ngFor="let validation of validation_messages.fullname">
+            <mat-error class="error-message" *ngIf="userDetailsForm.get('fullname').hasError(validation.type) && (userDetailsForm.get('fullname').dirty || userDetailsForm.get('fullname').touched)">{{validation.message}}</mat-error>
+          </mat-error> -->
+        </mat-form-field>
+
+      </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="action-button">
+        <button mat-raised-button color="primary" (click)="Save()">حفظ </button>
+        <button mat-raised-button color="warn" (click)="onNoClick()">ألغاء </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

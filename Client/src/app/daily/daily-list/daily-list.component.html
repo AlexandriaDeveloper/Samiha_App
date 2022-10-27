@@ -1,0 +1,219 @@
+<div class="example-container mat-elevation-z8" >
+<div class="page-header">
+
+
+  <mat-card  *ngIf="data" >
+    <mat-card-header>
+
+    </mat-card-header>
+    <mat-card-content>
+      <div >
+        <div style="display: flex;justify-content: space-around; padding-bottom: 30px;">
+
+
+          <div>
+
+          اجمالى كسب عمل:       {{data.totalTaxNormal}}
+
+
+          </div>
+          <div>
+
+            اجمالى دمغه عاديه:       {{data.totalStamp}}
+
+
+            </div>
+            <div>
+
+              اجمالى تسويه ضريبيه:{{data.totalTaxsettlement}}
+
+              </div>
+              <div>
+
+                اجمالى ضرائب باب ثانى :       {{data.totalTax2}}
+
+
+                </div>
+                <div>
+
+                  اجمالى  اخرى  :       {{data.totalOther}}
+
+
+                  </div>
+
+        </div>
+
+
+<div style="display: flex;justify-content: space-around;">
+<div >
+<h2>
+أجمالى الضرائب :       {{data.totalSumTax}}</h2>
+
+
+</div>
+<div>
+<h2>
+أجمالى رسم التنميه :       {{data.totalTaxDevelopment}}</h2>
+
+</div>
+</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+  <div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+    لا توجد بيانات للعرض .....
+    </div>
+  </div>
+
+  <div class="example-table-container">
+    <div>
+      <button mat-raised-button color="primary" (click)="openDialog('Add')">
+        <mat-icon>add</mat-icon>اضافة يوميه
+      </button>
+      <button mat-mini-fab color="default" (click)="export()"><mat-icon>download</mat-icon></button>
+    </div>
+
+    <table mat-table [dataSource]="data?.items" class="example-table" matSort matSortDisableClear matSortDirection="desc" >
+      <!-- Number Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>
+
+          <mat-form-field appearance="fill">
+            <mat-icon matSuffix>search</mat-icon>
+            <input matInput  placeholder=" البحث برقم 224"  autocomplete="off" #searchInput>
+
+           </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let row">
+           <button mat-mini-fab color="primary" (click)="openDialog('Edit',row)"><mat-icon>edit</mat-icon></button>
+
+           <button mat-mini-fab color="warn" (click)="deleteDaily(row)"><mat-icon>delete</mat-icon></button>
+        </td>
+        <td mat-footer-cell *matFooterCellDef  class="footer"> </td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>
+          <div style="display:flex;justify-items:center">
+
+            <mat-form-field class="example-form-field" appearance="fill">
+              <mat-label>البحث بالبيان</mat-label>
+              <mat-icon matSuffix>search</mat-icon>
+              <input matInput type="text"  #nameInput>
+
+            </mat-form-field>
+            <div style="display:flex;justify-items:center" mat-sort-header disableClear></div>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <div [routerLink]="['dailybox-list/'+row.id]"   style="cursor: pointer;text-decoration: none;">          {{row.name}}</div>
+
+
+
+        </td>
+        <td mat-footer-cell *matFooterCellDef  class="footer"> </td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="dailyDate">
+        <th mat-header-cell *matHeaderCellDef>
+          <div style="display:flex;justify-items:center">
+
+            <mat-form-field class="example-form-field" appearance="fill">
+              <mat-label>البحث بالتاريخ</mat-label>
+              <mat-icon matSuffix>search</mat-icon>
+              <input matInput type="month" #dailyDateInput>
+
+            </mat-form-field>
+            <div style="display:flex;justify-items:center" mat-sort-header disableClear></div>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let row">{{row.dailyDate |date}}</td>
+        <td mat-footer-cell *matFooterCellDef  class="footer"> الاجماليات</td>
+      </ng-container>
+<!--Total-->
+<ng-container matColumnDef="taxNormal">
+  <th mat-header-cell *matHeaderCellDef>
+<h2>  كسب العمل</h2>
+  </th>
+  <td mat-cell *matCellDef="let row">{{row.taxNormal}}</td>
+  <td mat-footer-cell *matFooterCellDef  class="footer"> {{data?.totalTaxNormal }}</td>
+</ng-container>
+
+<!--Total-->
+<ng-container matColumnDef="stamp">
+  <th mat-header-cell *matHeaderCellDef>
+<h2> دمغه</h2>
+  </th>
+  <td mat-cell *matCellDef="let row">{{row.stamp}}</td>
+  <td mat-footer-cell *matFooterCellDef  class="footer"> {{data?.totalStamp }}</td>
+</ng-container>
+
+<!--Total-->
+<ng-container matColumnDef="taxsettlement">
+  <th mat-header-cell *matHeaderCellDef>
+<h2> تسويه ضريبيه</h2>
+  </th>
+  <td mat-cell *matCellDef="let row">{{row.taxsettlement}}</td>
+  <td mat-footer-cell *matFooterCellDef  class="footer"> {{data?.totalTaxsettlement }}</td>
+</ng-container>
+
+
+<!--Total-->
+<ng-container matColumnDef="tax2">
+  <th mat-header-cell *matHeaderCellDef>
+<h2> ضرائب باب ثانى</h2>
+  </th>
+  <td mat-cell *matCellDef="let row">{{row.tax2}}</td>
+  <td mat-footer-cell *matFooterCellDef  class="footer"> {{data?.totalTax2 }}</td>
+</ng-container>
+<!--Total-->
+<ng-container matColumnDef="other">
+  <th mat-header-cell *matHeaderCellDef>
+
+<h2> اخرى</h2>
+  </th>
+  <td mat-cell *matCellDef="let row">{{row.other}}</td>
+  <td mat-footer-cell *matFooterCellDef  class="footer"> {{data?.totalOther }}</td>
+</ng-container>
+      <!--Total-->
+<ng-container matColumnDef="sumTax">
+  <th mat-header-cell *matHeaderCellDef>
+<h2>اجمالى ضرائب</h2>
+  </th>
+  <td mat-cell *matCellDef="let row">
+
+    <div class="totalTax">
+
+      <span>
+        {{row.total}}
+      </span>
+            </div>
+
+ </td>
+ <td mat-footer-cell *matFooterCellDef  class="footer"> {{data?.totalSumTax }}</td>
+</ng-container>
+<!--Total-->
+<ng-container matColumnDef="taxDevelopment">
+  <th mat-header-cell *matHeaderCellDef>
+<h2> اجمالى تنميه</h2>
+  </th>
+  <td mat-cell *matCellDef="let row">{{row.totalDevelopment}}</td>
+  <td mat-footer-cell *matFooterCellDef  class="footer"> {{data?.totalTaxDevelopment }}</td>
+</ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>
+  </div>
+
+  <mat-paginator [length]="resultsLength" [pageSize]="param?.pageSize" aria-label="Select page of GitHub search results">
+  </mat-paginator>
+</div>

@@ -1,0 +1,58 @@
+<div *ngIf="data">
+
+
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>يوميه</mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="boxForm" (ngSubmit)="Save()">
+
+        <mat-form-field appearance="fill" class="full-width">
+
+          <mat-label>اختار الكليه</mat-label>
+          <mat-select (selectionChange)="CollageSelectionChange($event.value)" formControlName="collageId">
+
+            <mat-option *ngFor="let collage of collages" [value]="collage.id">
+              {{collage.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+
+          <mat-label>اختار الكليه</mat-label>
+          <mat-select (selectionChange)="boxSelectionChange($event.value)" formControlName="boxId">
+
+            <mat-option *ngFor="let box of boxes" [value]="box.id">
+              {{box.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!--  <mat-form-field color="primary" class="full-width">
+
+    <input matInput type="date" placeholder="اليوميه" formControlName="dailyDate" [value]="model.dailyDate"   #datePicker>
+
+            <mat-label>البيان</mat-label>
+            <input matInput formControlName="name">
+
+
+          <mat-error *ngFor="let validation of validation_messages.fullname">
+            <mat-error class="error-message" *ngIf="userDetailsForm.get('fullname').hasError(validation.type) && (userDetailsForm.get('fullname').dirty || userDetailsForm.get('fullname').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field> -->
+      </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="action-button">
+        <button mat-raised-button color="primary" (click)="Save()">حفظ </button>
+        <button mat-raised-button color="warn" (click)="onNoClick()">ألغاء </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
