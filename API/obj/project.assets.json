@@ -2286,11 +2286,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\SamihaApp\\api\\API.csproj",
+      "projectUniqueName": "F:\\Samiha_App\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "F:\\SamihaApp\\api\\API.csproj",
+      "projectPath": "F:\\Samiha_App\\api\\API.csproj",
       "packagesPath": "C:\\Users\\seaag\\.nuget\\packages\\",
-      "outputPath": "F:\\SamihaApp\\api\\obj\\",
+      "outputPath": "F:\\Samiha_App\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\seaag\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2307,8 +2307,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "F:\\SamihaApp\\InfraStructure\\InfraStructure.csproj": {
-              "projectPath": "F:\\SamihaApp\\InfraStructure\\InfraStructure.csproj"
+            "F:\\Samiha_App\\InfraStructure\\InfraStructure.csproj": {
+              "projectPath": "F:\\Samiha_App\\InfraStructure\\InfraStructure.csproj"
             }
           }
         }

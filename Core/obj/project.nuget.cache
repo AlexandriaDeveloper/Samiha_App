@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3Ils2i9ZhXaP/qqq70WgnEIQejLqJVNKTS+MLjo7Gr6OUHGEa9cUJ06h1LtnFfzADjDkF1yYf56PBF10MeA4RA==",
+  "dgSpecHash": "HaxCosj7m3gK6JL0tEzyhHny2lcSONsIvd19GsewGyb91ZcSK/TwJZz61OM5d2oCR7ujW8ip2CQhwEE4VZ7z0g==",
   "success": true,
-  "projectFilePath": "F:\\SamihaApp\\Core\\Core.csproj",
+  "projectFilePath": "F:\\Samiha_App\\Core\\Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

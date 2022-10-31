@@ -33,7 +33,8 @@ export class DailyBoxListComponent implements OnInit ,AfterViewInit{
   collages:Collage[]=[];
 
 
-  displayedColumns: string[] = ['id','box','collage', 'total','totalTaxDevelopment'];
+  displayedColumns: string[] = ['id','box','collage','taxNormal','stamp','taxsettlement',
+  'tax2','other', 'total','totalTaxDevelopment'];
   constructor(private router : ActivatedRoute, private dailyBoxService : DailyBoxListService,
     private collageService : CollageService,public dialog: MatDialog) { }
   ngAfterViewInit(): void {

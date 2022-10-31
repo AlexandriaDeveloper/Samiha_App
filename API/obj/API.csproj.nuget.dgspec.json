@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\SamihaApp\\Api\\API.csproj": {}
+    "F:\\Samiha_App\\api\\API.csproj": {}
   },
   "projects": {
-    "F:\\SamihaApp\\Api\\API.csproj": {
+    "F:\\Samiha_App\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\SamihaApp\\Api\\API.csproj",
+        "projectUniqueName": "F:\\Samiha_App\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "F:\\SamihaApp\\Api\\API.csproj",
+        "projectPath": "F:\\Samiha_App\\api\\API.csproj",
         "packagesPath": "C:\\Users\\seaag\\.nuget\\packages\\",
-        "outputPath": "F:\\SamihaApp\\Api\\obj\\",
+        "outputPath": "F:\\Samiha_App\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\seaag\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\SamihaApp\\InfraStructure\\InfraStructure.csproj": {
-                "projectPath": "F:\\SamihaApp\\InfraStructure\\InfraStructure.csproj"
+              "F:\\Samiha_App\\InfraStructure\\InfraStructure.csproj": {
+                "projectPath": "F:\\Samiha_App\\InfraStructure\\InfraStructure.csproj"
               }
             }
           }
@@ -89,14 +89,14 @@
         }
       }
     },
-    "F:\\SamihaApp\\Core\\Core.csproj": {
+    "F:\\Samiha_App\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\SamihaApp\\Core\\Core.csproj",
+        "projectUniqueName": "F:\\Samiha_App\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "F:\\SamihaApp\\Core\\Core.csproj",
+        "projectPath": "F:\\Samiha_App\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\seaag\\.nuget\\packages\\",
-        "outputPath": "F:\\SamihaApp\\Core\\obj\\",
+        "outputPath": "F:\\Samiha_App\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\seaag\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -143,14 +143,14 @@
         }
       }
     },
-    "F:\\SamihaApp\\InfraStructure\\InfraStructure.csproj": {
+    "F:\\Samiha_App\\InfraStructure\\InfraStructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\SamihaApp\\InfraStructure\\InfraStructure.csproj",
+        "projectUniqueName": "F:\\Samiha_App\\InfraStructure\\InfraStructure.csproj",
         "projectName": "InfraStructure",
-        "projectPath": "F:\\SamihaApp\\InfraStructure\\InfraStructure.csproj",
+        "projectPath": "F:\\Samiha_App\\InfraStructure\\InfraStructure.csproj",
         "packagesPath": "C:\\Users\\seaag\\.nuget\\packages\\",
-        "outputPath": "F:\\SamihaApp\\InfraStructure\\obj\\",
+        "outputPath": "F:\\Samiha_App\\InfraStructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\seaag\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -167,8 +167,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\SamihaApp\\Core\\Core.csproj": {
-                "projectPath": "F:\\SamihaApp\\Core\\Core.csproj"
+              "F:\\Samiha_App\\Core\\Core.csproj": {
+                "projectPath": "F:\\Samiha_App\\Core\\Core.csproj"
               }
             }
           }

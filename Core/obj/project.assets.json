@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\SamihaApp\\Core\\Core.csproj",
+      "projectUniqueName": "F:\\Samiha_App\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "F:\\SamihaApp\\Core\\Core.csproj",
+      "projectPath": "F:\\Samiha_App\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\seaag\\.nuget\\packages\\",
-      "outputPath": "F:\\SamihaApp\\Core\\obj\\",
+      "outputPath": "F:\\Samiha_App\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\seaag\\AppData\\Roaming\\NuGet\\NuGet.Config",

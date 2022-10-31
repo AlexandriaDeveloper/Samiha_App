@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m9U/fiE5or4f6qhHLip5mh98pCzH2t2QmpU8w6uT15C101j44Bd4VCug7tZRiQIw8szeHZ276yvqKn8DnVW6hg==",
+  "dgSpecHash": "ggjtG7K07mDHVZztlNJodZJSqR+YNs8+vrYu3Wv0VI794fIFVlmZXl3q1/9+nPPFa/nVhjpbvcb5f9cjvLGjTw==",
   "success": true,
-  "projectFilePath": "F:\\SamihaApp\\Api\\API.csproj",
+  "projectFilePath": "F:\\Samiha_App\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\seaag\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\seaag\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

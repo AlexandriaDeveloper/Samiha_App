@@ -36,19 +36,29 @@ namespace API.Controllers
             var dailyBoxes = await _uow.DailyBoxRepository.GetAll(spec);
             var dailyBoxesDto = _mapper.Map<IReadOnlyList<DailyBoxDto>>(dailyBoxes);
 
-
+            foreach (var dailyBoxDto in dailyBoxesDto)
+            {
+                var form = dailyBoxes.FirstOrDefault(x => x.Id == dailyBoxDto.Id).Forms;
+                dailyBoxDto.TaxNormal = form.Sum(s => s.TaxNormal);
+                dailyBoxDto.Taxsettlement = form.Sum(s => s.Taxsettlement);
+                dailyBoxDto.Other = form.Sum(s => s.Other);
+                dailyBoxDto.Tax2 = form.Sum(s => s.Tax2);
+                dailyBoxDto.Stamp = form.Sum(s => s.Stamp);
+                dailyBoxDto.Total = form.Sum(s => s.SumTax);
+                dailyBoxDto.TotalTaxDevelopment = form.Sum(s => s.TaxDevelopment);
+            }
             var count = await _uow.DailyBoxRepository.CountAsync(new DailyBoxCountAsyncWithSpecification(param));
 
             var responseData = new responseData<DailyBoxDto>(dailyBoxesDto, count);
 
-            responseData.TotalSumTax = dailyBoxes.SelectMany(t => t.Forms).Sum(t => t.SumTax);
-            responseData.TotalStamp = dailyBoxes.SelectMany(t => t.Forms).Sum(t => t.Stamp);
-            responseData.TotalOther = dailyBoxes.SelectMany(t => t.Forms).Sum(t => t.Other);
-            responseData.TotalTaxNormal = dailyBoxes.SelectMany(t => t.Forms).Sum(t => t.TaxNormal);
-            responseData.TotalTax2 = dailyBoxes.SelectMany(t => t.Forms).Sum(t => t.Tax2);
-            responseData.TotalTaxsettlement = dailyBoxes.SelectMany(t => t.Forms).Sum(t => t.Taxsettlement);
+            responseData.TotalSumTax = responseData.Items.Sum(t => t.Total);
+            responseData.TotalStamp = responseData.Items.Sum(t => t.Stamp);
+            responseData.TotalOther = responseData.Items.Sum(t => t.Other);
+            responseData.TotalTaxNormal = responseData.Items.Sum(t => t.TaxNormal);
+            responseData.TotalTax2 = responseData.Items.Sum(t => t.Tax2);
+            responseData.TotalTaxsettlement = responseData.Items.Sum(t => t.Taxsettlement);
 
-            responseData.TotalTaxDevelopment = dailyBoxes.SelectMany(t => t.Forms).Sum(t => t.TaxDevelopment);
+            responseData.TotalTaxDevelopment = responseData.Items.Sum(t => t.TotalTaxDevelopment);
 
 
             return Ok(responseData);

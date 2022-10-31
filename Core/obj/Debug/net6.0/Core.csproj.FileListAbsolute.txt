@@ -10,3 +10,15 @@ F:\SamihaApp\Core\obj\Debug\net6.0\Core.dll
 F:\SamihaApp\Core\obj\Debug\net6.0\refint\Core.dll
 F:\SamihaApp\Core\obj\Debug\net6.0\Core.pdb
 F:\SamihaApp\Core\obj\Debug\net6.0\ref\Core.dll
+F:\Samiha_App\Core\bin\Debug\net6.0\Core.deps.json
+F:\Samiha_App\Core\bin\Debug\net6.0\Core.dll
+F:\Samiha_App\Core\bin\Debug\net6.0\Core.pdb
+F:\Samiha_App\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+F:\Samiha_App\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\Samiha_App\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+F:\Samiha_App\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+F:\Samiha_App\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+F:\Samiha_App\Core\obj\Debug\net6.0\Core.dll
+F:\Samiha_App\Core\obj\Debug\net6.0\refint\Core.dll
+F:\Samiha_App\Core\obj\Debug\net6.0\Core.pdb
+F:\Samiha_App\Core\obj\Debug\net6.0\ref\Core.dll

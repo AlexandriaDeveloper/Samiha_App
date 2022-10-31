@@ -171,17 +171,6 @@ namespace API.Controllers
             responseData.TotalOther = responseData.Items.Sum(x => x.Other);
 
 
-
-
-            ExportExcelFile<FormDto> file = new ExportExcelFile<FormDto>();
-
-
-
-            var header = (new string[] { "id", "البيان", "رقم 224", "كود الصندوق", "كسب عمل", "دمغه عاديه", "تسويه ضريبيه", "ضرائب باب ثانى", "اخرى", "اجمالى ضرائب", "رسم تنميه" });
-            var tableContent = (responseData.Items.ToList());
-            var footer = (new string[] { "", "", " ", "الاجمالى  ", responseData.TotalTaxNormal.ToString(), responseData.TotalStamp.ToString(), responseData.TotalTaxsettlement.ToString(), responseData.TotalTax2.ToString(), responseData.TotalOther.ToString(), responseData.TotalSumTax.ToString(), responseData.TotalTaxDevelopment.ToString() });
-
-
             var dailyBoxSpec = new DailyBoxWithSpecification(new DailyBoxParam() { Id = param.DailyBoxId });
             dailyBoxSpec.Includes.Add(x => x.Daily);
             dailyBoxSpec.Includes.Add(x => x.Box);
@@ -189,6 +178,17 @@ namespace API.Controllers
 
             var dailyBox = await _uow.DailyBoxRepository.GetById(dailyBoxSpec);
             var title = dailyBox.Box.Name + dailyBox.Daily.DailyDate.ToString("dd-MM-yy");
+
+            ExportExcelFile<FormDto> file = new ExportExcelFile<FormDto>();
+
+
+
+            var header = (new string[] { "id", "البيان", "رقم 224", "كود الصندوق", "كسب عمل", "دمغه عاديه", "تسويه ضريبيه", "ضرائب باب ثانى", "اخرى", "اجمالى ضرائب", "رسم تنميه" });
+            var tableContent = (responseData.Items.ToList());
+            var footer = (new string[] { "", "حساب " + dailyBox.Box.Name + "-" + dailyBox.Box.Collage.Name, "يوميه" + dailyBox.Daily.DailyDate.ToShortDateString(), "الاجمالى  ", responseData.TotalTaxNormal.ToString(), responseData.TotalStamp.ToString(), responseData.TotalTaxsettlement.ToString(), responseData.TotalTax2.ToString(), responseData.TotalOther.ToString(), responseData.TotalSumTax.ToString(), responseData.TotalTaxDevelopment.ToString() });
+
+
+
             file.CreateWorkSheet(tableContent, title, header, footer);
 
             string filePath = file.SaveAs(); ;
